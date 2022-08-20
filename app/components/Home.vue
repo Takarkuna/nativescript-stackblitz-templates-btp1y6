@@ -66,7 +66,7 @@ export default {
 
 <style scoped>
 .btn {
-    font-size: 18;
+    font-size: 20;
 }
 
 .home-panel{
