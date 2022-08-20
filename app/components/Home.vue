@@ -8,8 +8,8 @@
             <TextField hint="Contraseña" class="-border"/>
             <TextView editable="false">
                 <FormattedString>
-                    <Span text="Recuperar Contraseña " fontStyle="Italic"
-                        class="h6" />
+                    <Span text="Recuperar Contraseña"
+         />
                 </FormattedString>
             </TextView>
             <Button class="btn btn-rounded-sm" text="Registrarse"
@@ -22,46 +22,7 @@
 </template>
 
 <script>
-export default {
-  methods: {
-    onItemTap: function (args) {
-      action('What do you want to do with this task?', 'Cancel', [
-        'Mark completed',
-        'Delete forever',
-      ]).then((result) => {
-        console.log(result); // Logs the selected option for debugging.
-        switch (result) {
-          case 'Mark completed':
-            this.dones.unshift(args.item); // Places the tapped active task at the top of the completed tasks.
-            this.todos.splice(args.index, 1); // Removes the tapped active  task.
-            break;
-          case 'Delete forever':
-            this.todos.splice(args.index, 1); // Removes the tapped active task.
-            break;
-          case 'Cancel' || undefined: // Dismisses the dialog.
-            break;
-        }
-      });
-    },
 
-    onButtonTap() {
-      if (this.textFieldValue === '') return; // Prevents users from entering an empty string.
-      console.log('New task added: ' + this.textFieldValue + '.'); // Logs the newly added task in the console for debugging.
-      this.todos.unshift({
-        name: this.textFieldValue,
-      }); // Adds tasks in the ToDo array. Newly added tasks are immediately shown on the screen.
-      this.textFieldValue = ''; // Clears the text field so that users can start adding new tasks immediately.
-    },
-  },
-
-  data() {
-    return {
-      dones: [],
-      todos: [],
-      textFieldValue: '',
-    };
-  },
-};
 </script>
 
 <style scoped>
